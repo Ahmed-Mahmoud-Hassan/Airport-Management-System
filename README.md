@@ -84,5 +84,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Author
 
-- Yousif Mohamed Rabea Metwaly
-- GitHub: [@Joe-world1357](https://github.com/Joe-world1357) 
+- Ahmed Mahmoud Hassan
+- LinkedIn: (https://www.linkedin.com/in/ahmed-mahmoud-0513a9369)
+- GitHub: [@Ahmed-Mahmoud-Hassan](https://github.com/Ahmed-Mahmoud-Hassan) 
