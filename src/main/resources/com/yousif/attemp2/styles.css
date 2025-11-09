@@ -1,0 +1,1053 @@
+/* Airport Management System CSS - Purple Theme */
+
+/* Color Palette */
+* {
+    -fx-primary-dark: #1c202c;       /* Background */
+    -fx-primary-purple: #60519b;     /* Accent */
+    -fx-secondary-dark: #31323c;     /* Panels */
+    -fx-light-white: #bfc0d1;        /* Text & Highlights */
+    
+    -fx-font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+}
+
+/* Main Layout */
+.main-background {
+    -fx-background-color: -fx-primary-dark;
+    background-color: #1c202c;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: -fx-primary-dark;
+    background-color: #1c202c;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 0);
+}
+
+.sidebar-header {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-padding: 0 0 10 0;
+    padding: 0 0 10px 0;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: derive(-fx-primary-purple, -20%);
+    background-color: #4d4178;
+}
+
+.sidebar-button:pressed {
+    -fx-background-color: derive(-fx-primary-purple, -30%);
+    background-color: #433869;
+}
+
+.sidebar-button .ikonli-font-icon {
+    -fx-fill: -fx-light-white;
+    fill: #bfc0d1;
+}
+
+/* Header */
+.header {
+    -fx-background-color: -fx-secondary-dark;
+    background-color: #31323c;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 3);
+}
+
+.header-title {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 18px;
+    font-size: 18px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.header-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-padding: 8;
+    padding: 8px;
+    -fx-background-radius: 100%;
+}
+
+.header-button:hover {
+    -fx-background-color: derive(-fx-primary-purple, 10%);
+    background-color: #6a5aaa;
+}
+
+.header-button .ikonli-font-icon {
+    -fx-fill: -fx-light-white;
+    fill: #bfc0d1;
+}
+
+/* Content Area */
+.content-area {
+    -fx-background-color: -fx-primary-dark;
+    background-color: #1c202c;
+    -fx-padding: 20;
+    padding: 20px;
+}
+
+/* Welcome Screen */
+.welcome-title {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 28px;
+    font-size: 28px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.welcome-subtitle {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 18px;
+    font-size: 18px;
+}
+
+/* Common Components */
+
+/* Buttons */
+.button {
+    -fx-background-color: -fx-primary-purple;
+    background-color: #60519b;
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-padding: 8 15;
+    padding: 8px 15px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary-purple, 10%);
+    background-color: #6a5aaa;
+}
+
+.button:pressed {
+    -fx-background-color: derive(-fx-primary-purple, -10%);
+    background-color: #56488c;
+}
+
+/* Secondary Button */
+.button-secondary {
+    -fx-background-color: -fx-secondary-dark;
+    background-color: #31323c;
+}
+
+.button-secondary:hover {
+    -fx-background-color: derive(-fx-secondary-dark, 10%);
+    background-color: #3b3c48;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: -fx-light-white;
+}
+
+/* Separator */
+.separator .line {
+    -fx-border-color: derive(-fx-light-white, -40%);
+    border-color: #72737d;
+    -fx-border-width: 0.5px;
+    border-width: 0.5px;
+}
+
+/* Card Panels */
+.card {
+    -fx-background-color: -fx-secondary-dark;
+    background-color: #31323c;
+    -fx-background-radius: 8px;
+    -fx-padding: 15;
+    padding: 15px;
+    -fx-spacing: 10;
+}
+
+.card-header {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.card-icon {
+    -fx-fill: -fx-primary-purple;
+    fill: #60519b;
+}
+
+/* Status Indicators */
+.status-normal {
+    -fx-text-fill: #4caf50;
+    -fx-fill: #4caf50;
+    fill: #4caf50;
+}
+
+.status-warning {
+    -fx-text-fill: #ffc107;
+    -fx-fill: #ffc107;
+    fill: #ffc107;
+}
+
+.status-critical {
+    -fx-text-fill: #f44336;
+    -fx-fill: #f44336;
+    fill: #f44336;
+}
+
+.status-active {
+    -fx-text-fill: -fx-primary-purple;
+    -fx-fill: -fx-primary-purple;
+    fill: #60519b;
+}
+
+/* Module Title */
+.module-title {
+    -fx-font-size: 24px;
+    font-size: 24px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-text-fill: -fx-light-white;
+    -fx-padding: 0 0 10 0;
+    padding: 0 0 10px 0;
+}
+
+/* Dashboard Specific Styles */
+.stat-value {
+    -fx-font-size: 28px;
+    font-size: 28px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-padding: 5 0;
+    padding: 5px 0;
+}
+
+.stat-comparison {
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+/* Chart Styling */
+.chart {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-padding: 10;
+    padding: 10px;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.axis {
+    -fx-tick-label-fill: -fx-light-white;
+}
+
+.axis-label {
+    -fx-text-fill: -fx-light-white;
+}
+
+.chart-series-line {
+    -fx-stroke: -fx-primary-purple;
+    stroke: #60519b;
+}
+
+/* Alerts */
+.alerts-container {
+    -fx-padding: 10 0;
+    padding: 10px 0;
+}
+
+.alert-item {
+    -fx-padding: 10;
+    padding: 10px;
+    -fx-background-radius: 5;
+    -fx-background-color: derive(-fx-secondary-dark, 5%);
+    background-color: #36373f;
+}
+
+.alert-title {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.alert-time {
+    -fx-font-size: 11px;
+    font-size: 11px;
+    -fx-text-fill: derive(-fx-light-white, -20%);
+}
+
+/* Health Status Items */
+.health-item {
+    -fx-padding: 5;
+    padding: 5px;
+}
+
+.health-label {
+    -fx-font-size: 13px;
+    font-size: 13px;
+}
+
+.health-status {
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+/* Flight Operations Styles */
+
+/* Stats Values */
+.stats-label {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-text-fill: -fx-light-white;
+    -fx-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.stats-value {
+    -fx-font-size: 36px;
+    font-size: 36px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-text-fill: -fx-light-white;
+}
+
+.stats-warning {
+    -fx-text-fill: #f44336;
+}
+
+.stats-purple {
+    -fx-text-fill: -fx-primary-purple;
+}
+
+/* Flight Table */
+.flight-table {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+}
+
+.flight-table .table-row-cell {
+    -fx-background-color: -fx-secondary-dark;
+    background-color: #31323c;
+    -fx-border-color: derive(-fx-secondary-dark, 10%);
+    border-color: #3b3c48;
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1px 0;
+    -fx-padding: 5;
+    padding: 5px;
+}
+
+.flight-table .table-row-cell:odd {
+    -fx-background-color: derive(-fx-secondary-dark, 5%);
+    background-color: #36373f;
+}
+
+.flight-table .table-row-cell:selected {
+    -fx-background-color: derive(-fx-primary-purple, -20%);
+    background-color: #4d4178;
+}
+
+.flight-table .column-header {
+    -fx-background-color: derive(-fx-primary-dark, 5%);
+    background-color: #21252f;
+    -fx-text-fill: -fx-light-white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1px 0;
+    -fx-border-color: derive(-fx-light-white, -40%);
+    border-color: #72737d;
+}
+
+.flight-table .column-header-background {
+    -fx-background-color: derive(-fx-primary-dark, 5%);
+    background-color: #21252f;
+}
+
+.flight-table .table-cell {
+    -fx-text-fill: -fx-light-white;
+    -fx-alignment: center-left;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+}
+
+/* Status Pills */
+.status-pill {
+    -fx-background-radius: 50px;
+    -fx-padding: 5 15;
+    padding: 5px 15px;
+    -fx-alignment: center;
+}
+
+.status-boarding {
+    -fx-background-color: -fx-primary-purple;
+    background-color: #60519b;
+}
+
+.status-ontime {
+    -fx-background-color: derive(-fx-primary-purple, -20%);
+    background-color: #4d4178;
+}
+
+.status-delayed {
+    -fx-background-color: #f44336;
+    background-color: #f44336;
+}
+
+.status-maintenance {
+    -fx-background-color: #ffc107;
+    background-color: #ffc107;
+}
+
+/* Pagination */
+.pagination-button {
+    -fx-background-color: derive(-fx-secondary-dark, 10%);
+    background-color: #3b3c48;
+    -fx-background-radius: 4px;
+    -fx-padding: 5 12;
+    padding: 5px 12px;
+    -fx-min-width: 30px;
+    min-width: 30px;
+    -fx-min-height: 30px;
+    min-height: 30px;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+.pagination-button:hover {
+    -fx-background-color: derive(-fx-primary-purple, -10%);
+    background-color: #56488c;
+}
+
+.pagination-active {
+    -fx-background-color: -fx-primary-purple;
+    background-color: #60519b;
+}
+
+.pagination-button .ikonli-font-icon {
+    -fx-fill: -fx-light-white;
+    fill: #bfc0d1;
+}
+
+/* Runway Dashboard Styles */
+
+/* Stats Detail */
+.stats-detail {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-text-fill: -fx-light-white;
+    -fx-opacity: 0.7;
+    opacity: 0.7;
+}
+
+/* Takeoff Queue */
+.takeoff-queue {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+}
+
+.takeoff-queue .list-cell {
+    -fx-background-color: derive(-fx-secondary-dark, 5%);
+    background-color: #36373f;
+    -fx-padding: 10;
+    padding: 10px;
+    -fx-border-color: derive(-fx-secondary-dark, 10%);
+    border-color: #3b3c48;
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1px 0;
+}
+
+.takeoff-queue .list-cell:odd {
+    -fx-background-color: -fx-secondary-dark;
+    background-color: #31323c;
+}
+
+.takeoff-queue .list-cell:selected {
+    -fx-background-color: derive(-fx-primary-purple, -20%);
+    background-color: #4d4178;
+}
+
+.queue-item {
+    -fx-alignment: center-left;
+}
+
+.position-label {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-text-fill: -fx-primary-purple;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-min-width: 30px;
+    min-width: 30px;
+}
+
+.queue-flight {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.queue-destination {
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.queue-runway {
+    -fx-font-size: 13px;
+    font-size: 13px;
+    -fx-text-fill: #8c9eff;
+}
+
+.queue-time {
+    -fx-font-size: 13px;
+    font-size: 13px;
+    -fx-text-fill: #ffc107;
+}
+
+/* Metrics */
+.metric-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.metric-value {
+    -fx-font-size: 24px;
+    font-size: 24px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.metric-unit {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.metric-progress {
+    -fx-accent: -fx-primary-purple;
+}
+
+.metric-progress-high {
+    -fx-accent: #8c9eff;
+}
+
+.metric-progress-warning {
+    -fx-accent: #ffc107;
+}
+
+/* Passenger Check-in Styles */
+
+/* Counter Heatmap */
+.counter-rect {
+    -fx-arc-height: 5;
+    -fx-arc-width: 5;
+    -fx-stroke-width: 1;
+    -fx-stroke: white;
+    stroke-width: 1;
+    stroke: white;
+}
+
+.counter-high, .high-utilization {
+    -fx-fill: #f44336; /* Red for high activity */
+    fill: #f44336;
+    -fx-stroke: #c62828; /* Darker red border */
+    stroke: #c62828;
+}
+
+.counter-medium, .medium-utilization {
+    -fx-fill: #ffc107; /* Yellow for medium activity */
+    fill: #ffc107;
+    -fx-stroke: #ff8f00; /* Darker yellow border */
+    stroke: #ff8f00;
+}
+
+.counter-low, .low-utilization {
+    -fx-fill: #4caf50; /* Green for low activity */
+    fill: #4caf50;
+    -fx-stroke: #2e7d32; /* Darker green border */
+    stroke: #2e7d32;
+}
+
+.counter-closed, .closed {
+    -fx-fill: #78909c; /* Gray for closed counter */
+    fill: #78909c;
+    -fx-stroke: #455a64; /* Darker gray border */
+    stroke: #455a64;
+    -fx-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.terminal-label {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-text-fill: -fx-light-white;
+}
+
+.legend-label {
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-text-fill: -fx-light-white;
+}
+
+/* Queue Indicators */
+.queue-terminal-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.queue-time-high {
+    -fx-text-fill: #f44336; /* Red for long wait */
+}
+
+.queue-time-medium {
+    -fx-text-fill: #ffc107; /* Yellow for medium wait */
+}
+
+.queue-time-low {
+    -fx-text-fill: #4caf50; /* Green for short wait */
+}
+
+.queue-indicator {
+    -fx-arc-height: 10;
+    -fx-arc-width: 10;
+}
+
+.queue-indicator-high {
+    -fx-fill: #f44336; /* Red for high queue */
+    fill: #f44336;
+}
+
+.queue-indicator-medium {
+    -fx-fill: #ffc107; /* Yellow for medium queue */
+    fill: #ffc107;
+}
+
+.queue-indicator-low {
+    -fx-fill: #4caf50; /* Green for low queue */
+    fill: #4caf50;
+}
+
+/* Staff Allocation */
+.staff-terminal-label, .staff-class-label, .staff-status-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.staff-count {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.staff-icon {
+    -fx-fill: -fx-primary-purple;
+    fill: #60519b;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+/* Security Checkpoint Styles */
+
+/* Custom Tab Pane */
+.custom-tab-pane {
+    -fx-tab-min-width: 150px;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+}
+
+.custom-tab-pane .tab-header-area {
+    -fx-padding: 0 0 10 0;
+    padding: 0 0 10px 0;
+}
+
+.custom-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.custom-tab {
+    -fx-background-color: derive(-fx-secondary-dark, -5%);
+    background-color: #2c2d37;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+}
+
+.custom-tab:selected {
+    -fx-background-color: -fx-primary-purple;
+    background-color: #60519b;
+}
+
+.custom-tab .tab-label {
+    -fx-text-fill: -fx-light-white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+/* Security Checkpoint Table */
+.checkpoint-table {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+}
+
+.checkpoint-table .table-row-cell {
+    -fx-background-color: derive(-fx-secondary-dark, -3%);
+    background-color: #2e2f39;
+    -fx-border-color: derive(-fx-secondary-dark, 10%);
+    border-color: #3b3c48;
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1px 0;
+    -fx-padding: 5;
+    padding: 5px;
+}
+
+.checkpoint-table .table-row-cell:odd {
+    -fx-background-color: derive(-fx-secondary-dark, 5%);
+    background-color: #36373f;
+}
+
+.checkpoint-table .table-row-cell:selected {
+    -fx-background-color: derive(-fx-primary-purple, -20%);
+    background-color: #4d4178;
+}
+
+.checkpoint-table .column-header {
+    -fx-background-color: derive(-fx-primary-dark, 5%);
+    background-color: #21252f;
+    -fx-text-fill: -fx-light-white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1px 0;
+    -fx-border-color: derive(-fx-light-white, -40%);
+    border-color: #72737d;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+}
+
+.checkpoint-table .column-header-background {
+    -fx-background-color: derive(-fx-primary-dark, 5%);
+    background-color: #21252f;
+}
+
+.checkpoint-table .table-cell {
+    -fx-text-fill: -fx-light-white;
+    -fx-alignment: center-left;
+    -fx-padding: 12 15;
+    padding: 12px 15px;
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+/* Status Pills for Security Checkpoints */
+.status-normal-pill {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+}
+
+.status-warning-pill {
+    -fx-background-color: #ffc107;
+    background-color: #ffc107;
+}
+
+/* Action Buttons */
+.alert-button {
+    -fx-background-color: #f44336;
+    background-color: #f44336;
+}
+
+.alert-button:hover {
+    -fx-background-color: derive(#f44336, 10%);
+    background-color: #f65549;
+}
+
+.action-button {
+    -fx-background-color: #60519b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: derive(#60519b, 10%);
+}
+
+.action-button:pressed {
+    -fx-background-color: derive(#60519b, -10%);
+}
+
+.table-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #60519b;
+    -fx-border-radius: 4;
+    -fx-padding: 4 8;
+}
+
+.table-button:hover {
+    -fx-background-color: rgba(96, 81, 155, 0.1);
+}
+
+.table-button .ikonli-font-icon {
+    -fx-icon-color: #60519b;
+    -fx-icon-size: 14;
+}
+
+/* Boarding Status Styles */
+
+/* Transparent ScrollPane */
+.transparent-scroll-pane {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-background: transparent;
+    background: transparent;
+    -fx-border-width: 0;
+    border-width: 0;
+}
+
+.transparent-scroll-pane .viewport {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+.transparent-scroll-pane .scroll-bar {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+/* Gate Information */
+.gate-label {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 16px;
+    font-size: 16px;
+}
+
+.flight-label {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.destination-label {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.time-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.aircraft-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.8;
+    opacity: 0.8;
+}
+
+.gate-separator {
+    -fx-text-fill: -fx-light-white;
+    -fx-opacity: 0.5;
+    opacity: 0.5;
+}
+
+/* Boarding Status Pills */
+.boarding-active {
+    -fx-background-color: -fx-primary-purple;
+    background-color: #60519b;
+}
+
+.boarding-pending {
+    -fx-background-color: #78909c;
+    background-color: #78909c;
+}
+
+.boarding-complete {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+}
+
+/* Boarding Progress */
+.boarding-progress-section {
+    -fx-padding: 15 0;
+    padding: 15px 0;
+}
+
+.progress-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.progress-percentage {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.progress-detail {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.boarding-progress-bar {
+    -fx-accent: -fx-primary-purple;
+    -fx-background-color: derive(-fx-secondary-dark, 10%);
+    background-color: #3b3c48;
+}
+
+.boarding-progress-bar-complete {
+    -fx-accent: #4caf50;
+    -fx-background-color: derive(-fx-secondary-dark, 10%);
+    background-color: #3b3c48;
+}
+
+/* Seat Map */
+.seat-map-container {
+    -fx-padding: 10 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.seat-section {
+    -fx-arc-height: 5;
+    -fx-arc-width: 5;
+}
+
+.seat-section-boarded {
+    -fx-fill: #4caf50;
+    fill: #4caf50;
+}
+
+.seat-section-boarding {
+    -fx-fill: -fx-primary-purple;
+    fill: #60519b;
+}
+
+.seat-section-pending {
+    -fx-fill: derive(-fx-secondary-dark, 15%);
+    fill: #45465a;
+}
+
+/* Special Assistance */
+.special-assistance-section {
+    -fx-padding: 10 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.assistance-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+.assistance-count {
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.assistance-circle {
+    -fx-stroke: transparent;
+    stroke: transparent;
+}
+
+.assistance-complete {
+    -fx-fill: #4caf50;
+    fill: #4caf50;
+}
+
+.assistance-pending {
+    -fx-fill: #ffc107;
+    fill: #ffc107;
+}
+
+/* Heat Map Indicators */
+.heatmap-indicator {
+    -fx-padding: 8;
+    -fx-background-radius: 4;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.heatmap-indicator.low-utilization {
+    -fx-background-color: #4caf50;
+    -fx-border-color: #2e7d32;
+}
+
+.heatmap-indicator.medium-utilization {
+    -fx-background-color: #ffc107;
+    -fx-border-color: #ff8f00;
+}
+
+.heatmap-indicator.high-utilization {
+    -fx-background-color: #f44336;
+    -fx-border-color: #c62828;
+}
+
+.heatmap-indicator.closed {
+    -fx-background-color: #78909c;
+    -fx-border-color: #455a64;
+    -fx-opacity: 0.8;
+} 

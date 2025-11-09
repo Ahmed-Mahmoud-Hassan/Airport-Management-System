@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.RunwayDashboardController">
+   <content>
+      <VBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="section-title" text="Runway Dashboard" />
+            
+            <!-- Runway Status Overview -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Runway 09L/27R" />
+                        <Label fx:id="runway1StatusLabel" styleClass="stat-card-value" text="Active" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Utilization:" />
+                              <ProgressBar fx:id="runway1UtilizationBar" prefWidth="150.0" progress="0.85" />
+                              <Label fx:id="runway1UtilizationLabel" text="85%" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Runway 18/36" />
+                        <Label fx:id="runway2StatusLabel" styleClass="stat-card-value" text="Active" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Utilization:" />
+                              <ProgressBar fx:id="runway2UtilizationBar" prefWidth="150.0" progress="0.72" />
+                              <Label fx:id="runway2UtilizationLabel" text="72%" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="2">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Runway 09R/27L" />
+                        <Label fx:id="runway3StatusLabel" styleClass="stat-card-value" text="Maintenance" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Utilization:" />
+                              <ProgressBar fx:id="runway3UtilizationBar" prefWidth="150.0" progress="0.0" />
+                              <Label fx:id="runway3UtilizationLabel" text="0%" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Weather Impact Section -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="section-title" text="Weather Impact" />
+                  <GridPane hgap="15.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox GridPane.columnIndex="0">
+                           <children>
+                              <Label text="Current Conditions" />
+                              <Label fx:id="currentConditionsLabel" styleClass="weather-value" text="Clear" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="1">
+                           <children>
+                              <Label text="Wind" />
+                              <Label fx:id="windLabel" styleClass="weather-value" text="8 kts - 270°" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="2">
+                           <children>
+                              <Label text="Visibility" />
+                              <Label fx:id="visibilityLabel" styleClass="weather-value" text="10+ km" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="3">
+                           <children>
+                              <Label text="Operational Impact" />
+                              <Label fx:id="weatherImpactLabel" styleClass="weather-value, status-normal" text="None" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            
+            <!-- Charts Section -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="300.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <!-- Runway Utilization Chart -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="section-title" text="Hourly Runway Utilization" />
+                        <BarChart fx:id="runwayUtilizationChart" legendVisible="true" VBox.vgrow="ALWAYS">
+                           <xAxis>
+                              <CategoryAxis label="Hour" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Operations" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Traffic Flow Chart -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="section-title" text="Traffic Flow (24h)" />
+                        <LineChart fx:id="trafficFlowChart" createSymbols="false" legendVisible="true" VBox.vgrow="ALWAYS">
+                           <xAxis>
+                              <CategoryAxis label="Hour" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Aircraft" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Traffic Metrics -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="section-title" text="Runway Traffic Metrics" />
+                  <GridPane hgap="15.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <children>
+                              <Label text="Takeoffs (Today)" />
+                              <Label fx:id="takeoffsLabel" styleClass="metric-value" text="248" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <children>
+                              <Label text="Landings (Today)" />
+                              <Label fx:id="landingsLabel" styleClass="metric-value" text="236" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
+                           <children>
+                              <Label text="Peak Hour" />
+                              <Label fx:id="peakHourLabel" styleClass="metric-value" text="10:00 - 11:00" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="3" GridPane.rowIndex="0">
+                           <children>
+                              <Label text="Peak Operations" />
+                              <Label fx:id="peakOperationsLabel" styleClass="metric-value" text="42" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Average Separation" />
+                              <Label fx:id="avgSeparationLabel" styleClass="metric-value" text="3.2 min" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Capacity Utilization" />
+                              <Label fx:id="capacityUtilizationLabel" styleClass="metric-value" text="78%" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Delay Factor" />
+                              <Label fx:id="delayFactorLabel" styleClass="metric-value" text="0.12" />
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Runway Efficiency" />
+                              <Label fx:id="runwayEfficiencyLabel" styleClass="metric-value" text="94%" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane> 

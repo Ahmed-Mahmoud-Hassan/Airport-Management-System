@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="user-notifications-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.UserNotificationsController">
+   <content>
+      <VBox spacing="20.0">
+         <children>
+            <Label styleClass="section-title" text="Notifications">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Notifications Tabs -->
+            <TabPane styleClass="notifications-tabs">
+               <tabs>
+                  <!-- All Notifications Tab -->
+                  <Tab text="All Notifications">
+                     <content>
+                        <VBox spacing="15.0">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#markAllAsRead" styleClass="secondary-button" text="Mark All as Read">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fas-check-double" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              
+                              <VBox fx:id="notificationsContainer" spacing="10.0">
+                                 <!-- Notifications will be added here dynamically -->
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <!-- Settings Tab -->
+                  <Tab text="Notification Settings">
+                     <content>
+                        <VBox spacing="15.0">
+                           <children>
+                              <VBox styleClass="content-panel">
+                                 <children>
+                                    <Label styleClass="card-title" text="Notification Preferences">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator />
+                                    
+                                    <VBox spacing="15.0">
+                                       <children>
+                                          <Label text="Notification Types" styleClass="subsection-title" />
+                                          
+                                          <CheckBox fx:id="flightUpdatesCheck" mnemonicParsing="false" selected="true" text="Flight Updates (Gate changes, delays, etc.)" />
+                                          <CheckBox fx:id="boardingAlertsCheck" mnemonicParsing="false" selected="true" text="Boarding Alerts" />
+                                          <CheckBox fx:id="baggageAlertsCheck" mnemonicParsing="false" selected="true" text="Baggage Status Updates" />
+                                          <CheckBox fx:id="securityAlertsCheck" mnemonicParsing="false" selected="true" text="Security Wait Times" />
+                                          <CheckBox fx:id="specialOffersCheck" mnemonicParsing="false" selected="false" text="Special Offers and Promotions" />
+                                          
+                                          <Separator />
+                                          
+                                          <Label text="Notification Method" styleClass="subsection-title" />
+                                          
+                                          <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                             <children>
+                                                <Label text="Preferred Method:" />
+                                                <ComboBox fx:id="notificationMethodCombo" prefWidth="200.0" promptText="Select Method" />
+                                             </children>
+                                          </HBox>
+                                          
+                                          <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                             <children>
+                                                <Label text="How Early:" />
+                                                <ComboBox fx:id="notificationTimingCombo" prefWidth="200.0" promptText="Select Timing" />
+                                             </children>
+                                          </HBox>
+                                          
+                                          <Separator />
+                                          
+                                          <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#resetSettings" styleClass="secondary-button" text="Reset to Default">
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fas-undo" />
+                                                   </graphic>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#saveSettings" styleClass="primary-button" text="Save Settings">
+                                                   <graphic>
+                                                      <FontIcon iconLiteral="fas-save" />
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane> 

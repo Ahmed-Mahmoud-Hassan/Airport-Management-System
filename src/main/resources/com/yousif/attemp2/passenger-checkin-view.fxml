@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.PassengerCheckinController">
+   <content>
+      <VBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="section-title" text="Passenger Check-in Status" />
+            
+            <!-- Overview Statistics -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Active Counters" />
+                        <Label fx:id="activeCountersValue" styleClass="stat-card-value" text="18/24" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Avg. Wait Time" />
+                        <Label fx:id="avgWaitTimeValue" styleClass="stat-card-value" text="12 min" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="2">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Passengers Processed" />
+                        <Label fx:id="passengersProcessedValue" styleClass="stat-card-value" text="3,245" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="3">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Staff On Duty" />
+                        <Label fx:id="staffOnDutyValue" styleClass="stat-card-value" text="32" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Counter Utilization Heatmap -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-title" text="Counter Utilization Heatmap" />
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Terminal:" />
+                              <ComboBox fx:id="terminalSelector" prefWidth="120.0" promptText="All Terminals" />
+                              <Button mnemonicParsing="false" onAction="#refreshHeatmap" text="Refresh" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  
+                  <GridPane fx:id="heatmapGrid" hgap="5.0" vgap="5.0">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                     <!-- Heatmap cells will be added dynamically -->
+                  </GridPane>
+                  
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="heatmap-indicator, low-utilization" text="   " />
+                              <Label text="Low" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="heatmap-indicator, medium-utilization" text="   " />
+                              <Label text="Medium" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="heatmap-indicator, high-utilization" text="   " />
+                              <Label text="High" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="heatmap-indicator, closed" text="   " />
+                              <Label text="Closed" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- Wait Time Trends -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="section-title" text="Wait Time Trends (Last 24 Hours)" />
+                  <BarChart fx:id="waitTimeChart" legendVisible="false">
+                     <xAxis>
+                        <CategoryAxis label="Hour" side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Minutes" side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+               </children>
+            </VBox>
+            
+            <!-- Staff Allocation -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-title" text="Staff Allocation" />
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#optimizeStaffing" styleClass="action-button" text="Optimize Staffing" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="staffingTable">
+                     <columns>
+                        <TableColumn fx:id="terminalColumn" prefWidth="100.0" text="Terminal" />
+                        <TableColumn fx:id="counterColumn" prefWidth="100.0" text="Counter" />
+                        <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
+                        <TableColumn fx:id="staffNameColumn" prefWidth="150.0" text="Staff Name" />
+                        <TableColumn fx:id="queueLengthColumn" prefWidth="120.0" text="Queue Length" />
+                        <TableColumn fx:id="waitTimeColumn" prefWidth="120.0" text="Wait Time" />
+                        <TableColumn fx:id="actionsColumn" prefWidth="120.0" text="Actions" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            
+            <!-- Recommendations -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="section-title" text="Recommendations" />
+                  <VBox fx:id="recommendationsContainer" spacing="10.0">
+                     <!-- Recommendations will be added dynamically -->
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

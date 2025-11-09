@@ -1,0 +1,666 @@
+/* User Portal Styles - Dark Theme */
+
+/* General Styles */
+.user-portal-container {
+    -fx-background-color: #1c202c;
+    background-color: #1c202c;
+}
+
+/* Sidebar Styles */
+.user-sidebar {
+    -fx-background-color: #1c202c;
+    background-color: #1c202c;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.user-logo {
+    -fx-text-fill: #60519b;
+    -fx-padding: 10 0 10 0;
+    padding: 10px 0 10px 0;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.user-nav-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: #bfc0d1;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-background-radius: 5;
+    -fx-min-width: 180;
+    min-width: 180px;
+}
+
+.user-nav-button:hover {
+    -fx-background-color: derive(#60519b, -20%);
+    background-color: #4d4178;
+}
+
+.user-nav-button .ikonli-font-icon {
+    -fx-icon-color: #bfc0d1;
+    -fx-icon-size: 18px;
+    -fx-min-width: 25px;
+    min-width: 25px;
+}
+
+.user-nav-button.active-nav-button {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+    -fx-text-fill: white;
+}
+
+.user-nav-button.active-nav-button .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+.logout-button {
+    -fx-background-color: rgba(231, 76, 60, 0.7);
+    background-color: rgba(231, 76, 60, 0.7);
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-background-radius: 5;
+    -fx-min-width: 180;
+    min-width: 180px;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(231, 76, 60, 0.9);
+    background-color: rgba(231, 76, 60, 0.9);
+}
+
+.logout-button .ikonli-font-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 18px;
+    -fx-min-width: 25px;
+    min-width: 25px;
+}
+
+/* Header Styles */
+.user-header {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.user-name-label {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.user-header .ikonli-font-icon {
+    -fx-icon-color: #60519b;
+}
+
+/* Content Area Styles */
+.user-content-area {
+    -fx-background-color: #1c202c;
+    background-color: #1c202c;
+}
+
+/* Dashboard Styles */
+.section-title {
+    -fx-text-fill: #bfc0d1;
+    -fx-padding: 0 0 10 0;
+    padding: 0 0 10px 0;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.dashboard-card {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-background-radius: 5;
+}
+
+.card-title {
+    -fx-text-fill: #bfc0d1;
+    -fx-padding: 0 0 5 0;
+    padding: 0 0 5px 0;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+/* Flight Card Styles */
+.flights-container {
+    -fx-padding: 10 0 0 0;
+    padding: 10px 0 0 0;
+}
+
+.flight-card {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    padding: 15px;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-border-width: 1;
+    border-width: 1px;
+}
+
+.flight-logo-container {
+    -fx-background-color: derive(#1c202c, 5%);
+    background-color: #21252f;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    padding: 15px;
+    -fx-min-width: 70;
+    min-width: 70px;
+    -fx-min-height: 70;
+    min-height: 70px;
+}
+
+.flight-logo-container .ikonli-font-icon {
+    -fx-icon-color: #60519b;
+}
+
+.flight-number {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-text-fill: #bfc0d1;
+    -fx-padding: 0 10 0 0;
+    padding: 0 10px 0 0;
+}
+
+.flight-status-ontime {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-padding: 3 8;
+    padding: 3px 8px;
+    -fx-background-radius: 3;
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+.flight-status-delayed {
+    -fx-background-color: #ff9800;
+    background-color: #ff9800;
+    -fx-text-fill: white;
+    -fx-padding: 3 8;
+    padding: 3px 8px;
+    -fx-background-radius: 3;
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+.flight-route {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-padding: 5 0;
+    padding: 5px 0;
+}
+
+.flight-date, .flight-terminal {
+    -fx-text-fill: derive(#bfc0d1, -20%);
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-padding: 2 0;
+    padding: 2px 0;
+}
+
+/* Quick Action Cards */
+.quick-action-card {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-background-radius: 5;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 0);
+    -fx-padding: 15;
+    padding: 15px;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+.quick-action-card:hover {
+    -fx-background-color: derive(#31323c, 5%);
+    background-color: #36373f;
+}
+
+.quick-action-card .ikonli-font-icon {
+    -fx-icon-color: #60519b;
+    -fx-padding: 0 0 10 0;
+    padding: 0 0 10px 0;
+}
+
+.quick-action-card Label {
+    -fx-text-fill: #bfc0d1;
+    -fx-padding: 5 0 0 0;
+    padding: 5px 0 0 0;
+}
+
+/* Status Updates */
+.status-update {
+    -fx-padding: 10;
+    padding: 10px;
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-background-radius: 5;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-border-width: 1;
+    border-width: 1px;
+}
+
+.status-update .ikonli-font-icon {
+    -fx-icon-color: #60519b;
+}
+
+/* Action Buttons */
+.action-button {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+    padding: 5px 10px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.action-button:hover {
+    -fx-background-color: derive(#60519b, 10%);
+    background-color: #6a5aaa;
+}
+
+.action-button .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+/* Table Styles - Fixing visibility issues */
+.table-view {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-table-cell-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+}
+
+.table-view .column-header {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #bfc0d1;
+    -fx-padding: 5 10;
+    padding: 5px 10px;
+}
+
+.table-row-cell {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: derive(#31323c, 5%);
+    background-color: #36373f;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: derive(#31323c, 10%);
+    background-color: #3b3c48;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: derive(#60519b, -20%);
+    background-color: #4d4178;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* Checkbox Styles */
+.check-box {
+    -fx-text-fill: #bfc0d1;
+}
+
+.check-box .box {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-border-color: #60519b;
+    border-color: #60519b;
+    -fx-border-radius: 3;
+    border-radius: 3px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+    background-color: white;
+}
+
+/* Combo Box Styles */
+.combo-box {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 3;
+    border-radius: 3px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-text-fill: #bfc0d1;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-text-fill: #bfc0d1;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: derive(#31323c, 10%);
+    background-color: #3b3c48;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+    -fx-text-fill: white;
+}
+
+/* Service Request Card Styles */
+.service-request-card {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    padding: 15px;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+}
+
+.service-request-title {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 16px;
+    font-size: 16px;
+}
+
+.service-request-description {
+    -fx-text-fill: derive(#bfc0d1, -20%);
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+/* Text Input Styles */
+.text-area, .text-field {
+    -fx-background-color: derive(#31323c, -5%);
+    background-color: #2c2d37;
+    -fx-text-fill: #bfc0d1;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+    -fx-border-radius: 3;
+    border-radius: 3px;
+}
+
+.text-area .content, .text-field .content {
+    -fx-background-color: derive(#31323c, -5%);
+    background-color: #2c2d37;
+}
+
+.text-area:focused, .text-field:focused {
+    -fx-border-color: #60519b;
+    border-color: #60519b;
+}
+
+/* Status Indicators */
+.status-ontime {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+}
+
+.status-delayed {
+    -fx-background-color: #ff9800;
+    background-color: #ff9800;
+}
+
+.status-boarding {
+    -fx-background-color: #2196f3;
+    background-color: #2196f3;
+}
+
+.status-departed {
+    -fx-background-color: #9c27b0;
+    background-color: #9c27b0;
+}
+
+.status-arrived {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+}
+
+.status-cancelled {
+    -fx-background-color: #f44336;
+    background-color: #f44336;
+}
+
+.status-available {
+    -fx-background-color: #4caf50;
+    background-color: #4caf50;
+    -fx-border-color: #388e3c;
+    border-color: #388e3c;
+}
+
+.status-unavailable {
+    -fx-background-color: #f44336;
+    background-color: #f44336;
+}
+
+.status-completed {
+    -fx-background-color: #2196f3;
+    background-color: #2196f3;
+}
+
+/* Small Action Buttons */
+.small-action-button {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+    -fx-padding: 5 10;
+    padding: 5px 10px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+.small-action-button:hover {
+    -fx-background-color: derive(#60519b, 10%);
+    background-color: #6a5aaa;
+}
+
+.small-action-button .ikonli-font-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 14px;
+    -fx-fill: white;
+    fill: white;
+}
+
+/* Notification Styles */
+.notification-box {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-padding: 10;
+    padding: 10px;
+}
+
+.unread-notification {
+    -fx-background-color: derive(#31323c, 5%);
+    background-color: #36373f;
+    -fx-border-color: #60519b;
+    border-color: #60519b;
+}
+
+.notification-title {
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.notification-message {
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.notification-time {
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+/* Scroll Bar Styling */
+.scroll-bar {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: derive(#31323c, 20%);
+    background-color: #45465a;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-cursor: hand;
+    cursor: pointer;
+}
+
+/* Tab Pane Styling */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #1c202c;
+    background-color: #1c202c;
+}
+
+.tab-pane .tab {
+    -fx-background-color: derive(#31323c, -5%);
+    background-color: #2c2d37;
+    -fx-border-color: derive(#31323c, 10%);
+    border-color: #3b3c48;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+/* Dialog Styling */
+.dialog-pane {
+    -fx-background-color: #1c202c;
+    background-color: #1c202c;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #bfc0d1;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.dialog-pane .content {
+    -fx-padding: 10;
+    padding: 10px;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: #60519b;
+    background-color: #60519b;
+    -fx-text-fill: white;
+    -fx-border-color: derive(#60519b, -10%);
+    border-color: #56488c;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    -fx-background-color: #31323c;
+    background-color: #31323c;
+    -fx-text-fill: #bfc0d1;
+    -fx-border-color: #60519b;
+    border-color: #60519b;
+    -fx-border-radius: 3;
+    border-radius: 3px;
+}
+
+/* Progress Indicator Styling */
+.progress-indicator {
+    -fx-progress-color: #60519b;
+}
+
+.progress-indicator .percentage {
+    -fx-fill: #bfc0d1;
+    fill: #bfc0d1;
+} 

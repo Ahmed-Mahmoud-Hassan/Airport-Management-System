@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.BoardingStatusController">
+   <content>
+      <VBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="section-title" text="Boarding Status Board" />
+            
+            <!-- Overview Statistics -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Flights Boarding" />
+                        <Label fx:id="flightsBoardingValue" styleClass="stat-card-value" text="8" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Passengers Boarding" />
+                        <Label fx:id="passengersBoardingValue" styleClass="stat-card-value" text="1,245" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="2">
+                     <children>
+                        <Label styleClass="stat-card-title" text="On-Time Departures" />
+                        <Label fx:id="onTimeDeparturesValue" styleClass="stat-card-value" text="92%" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="3">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Average Boarding Time" />
+                        <Label fx:id="avgBoardingTimeValue" styleClass="stat-card-value" text="22 min" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Boarding Status Table -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-title" text="Gate Boarding Status" />
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Terminal:" />
+                              <ComboBox fx:id="terminalSelector" prefWidth="120.0" promptText="All Terminals" />
+                              <Button mnemonicParsing="false" onAction="#refreshBoardingStatus" text="Refresh" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  
+                  <TableView fx:id="boardingTable">
+                     <columns>
+                        <TableColumn fx:id="flightColumn" prefWidth="100.0" text="Flight" />
+                        <TableColumn fx:id="destinationColumn" prefWidth="150.0" text="Destination" />
+                        <TableColumn fx:id="gateColumn" prefWidth="80.0" text="Gate" />
+                        <TableColumn fx:id="departureColumn" prefWidth="100.0" text="Departure" />
+                        <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
+                        <TableColumn fx:id="progressColumn" prefWidth="150.0" text="Boarding Progress" />
+                        <TableColumn fx:id="actionsColumn" prefWidth="100.0" text="Actions" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            
+            <!-- Boarding Details -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="350.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <!-- Seat Map -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label styleClass="section-title" text="Seat Map Visualization" />
+                              <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Flight:" />
+                                    <ComboBox fx:id="flightSelector" prefWidth="120.0" promptText="Select Flight" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        
+                        <Pane fx:id="seatMapContainer" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                           <!-- Seat map will be added dynamically -->
+                        </Pane>
+                        
+                        <HBox alignment="CENTER" spacing="20.0">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <children>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <Rectangle fill="#60519b" height="15.0" width="15.0" />
+                                    <Label text="Boarded" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <Rectangle fill="#8c9eff" height="15.0" width="15.0" />
+                                    <Label text="Checked In" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <Rectangle fill="#5d5e69" height="15.0" width="15.0" />
+                                    <Label text="Available" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Boarding Progress -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="section-title" text="Boarding Progress" />
+                        
+                        <VBox fx:id="boardingProgressContainer" spacing="15.0">
+                           <children>
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Flight Status" />
+                                    <Label fx:id="selectedFlightStatus" styleClass="boarding-status" text="Boarding - Group 2" />
+                                 </children>
+                              </VBox>
+                              
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Overall Progress" />
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <ProgressBar fx:id="overallProgressBar" prefWidth="200.0" progress="0.45" />
+                                          <Label fx:id="overallProgressLabel" text="45%" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Label text="Boarding Groups" />
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="80.0" text="Group 1" />
+                                          <ProgressBar prefWidth="150.0" progress="1.0" />
+                                          <Label text="100%" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="80.0" text="Group 2" />
+                                          <ProgressBar prefWidth="150.0" progress="0.75" />
+                                          <Label text="75%" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="80.0" text="Group 3" />
+                                          <ProgressBar prefWidth="150.0" progress="0.0" />
+                                          <Label text="0%" />
+                                       </children>
+                                    </HBox>
+                                    
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="80.0" text="Group 4" />
+                                          <ProgressBar prefWidth="150.0" progress="0.0" />
+                                          <Label text="0%" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        
+                        <PieChart fx:id="boardingDistributionChart" labelsVisible="true" prefHeight="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane> 

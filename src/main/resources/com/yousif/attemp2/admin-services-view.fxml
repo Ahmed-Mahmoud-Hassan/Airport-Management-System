@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.AdminServicesController">
+    <children>
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <children>
+                <Label text="All Service Requests" styleClass="section-title" />
+                <Button fx:id="refreshBtn" text="Refresh" onAction="#refreshRequests">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sync" />
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <TableView fx:id="requestsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="requestIdCol" text="Request ID" prefWidth="80" />
+                <TableColumn fx:id="userIdCol" text="User ID" prefWidth="80" />
+                <TableColumn fx:id="serviceTypeCol" text="Service Type" prefWidth="120" />
+                <TableColumn fx:id="locationCol" text="Location" prefWidth="100" />
+                <TableColumn fx:id="urgencyCol" text="Urgency" prefWidth="80" />
+                <TableColumn fx:id="statusCol" text="Status" prefWidth="100" />
+                <TableColumn fx:id="createdAtCol" text="Created At" prefWidth="150" />
+                <TableColumn fx:id="descriptionCol" text="Description" prefWidth="200" />
+                <TableColumn fx:id="actionsCol" text="Actions" prefWidth="150" />
+            </columns>
+        </TableView>
+    </children>
+    <padding>
+        <Insets top="15.0" left="15.0" right="15.0" bottom="15.0" />
+    </padding>
+</VBox> 

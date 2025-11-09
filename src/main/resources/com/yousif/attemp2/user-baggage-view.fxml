@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="user-baggage-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.UserBaggageController">
+   <content>
+      <VBox spacing="20.0">
+         <children>
+            <Label styleClass="section-title" text="Baggage Tracking">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Baggage Search Section -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="card-title" text="Track Your Baggage">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <TextField fx:id="baggageIdField" prefWidth="250.0" promptText="Enter Baggage Tag Number" />
+                        <Button mnemonicParsing="false" onAction="#trackBaggage" styleClass="search-button" text="Track">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-search" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+            
+            <!-- Baggage Tracking Status -->
+            <VBox fx:id="baggageTrackingContainer" styleClass="content-panel">
+               <children>
+                  <Label styleClass="card-title" text="Baggage Status">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <VBox fx:id="baggageDetailsContainer" spacing="15.0">
+                     <children>
+                        <Label styleClass="placeholder-text" text="Enter a baggage tag number to track your baggage" />
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+            
+            <!-- Your Baggage Items -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="card-title" text="Your Baggage Items">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <TableView fx:id="baggageTable">
+                     <columns>
+                        <TableColumn fx:id="baggageIdCol" prefWidth="120.0" text="Baggage ID" />
+                        <TableColumn fx:id="flightCol" prefWidth="100.0" text="Flight" />
+                        <TableColumn fx:id="statusCol" prefWidth="120.0" text="Status" />
+                        <TableColumn fx:id="locationCol" prefWidth="150.0" text="Current Location" />
+                        <TableColumn fx:id="lastUpdatedCol" prefWidth="150.0" text="Last Updated" />
+                        <TableColumn fx:id="actionsCol" prefWidth="100.0" text="Actions" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+            
+            <!-- Baggage Information -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="card-title" text="Baggage Information">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label text="Baggage Allowance:" styleClass="subsection-title" />
+                        <Label text="• Economy Class: 1 checked bag (max 23kg)" wrapText="true" />
+                        <Label text="• Business Class: 2 checked bags (max 32kg each)" wrapText="true" />
+                        <Label text="• First Class: 3 checked bags (max 32kg each)" wrapText="true" />
+                        
+                        <Label text="Baggage Tracking Process:" styleClass="subsection-title">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox spacing="5.0" alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="status-indicator, status-check-in" text=" " />
+                              <Label text="Check-in" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-screening" text=" " />
+                              <Label text="Screening" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-sorting" text=" " />
+                              <Label text="Sorting" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-loading" text=" " />
+                              <Label text="Loading" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-in-flight" text=" " />
+                              <Label text="In Flight" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-unloading" text=" " />
+                              <Label text="Unloading" />
+                              <Label text="→" />
+                              <Label styleClass="status-indicator, status-claim" text=" " />
+                              <Label text="Claim" />
+                           </children>
+                        </HBox>
+                        
+                        <Label text="Lost Baggage:" styleClass="subsection-title">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="If your baggage is lost or delayed, please contact our baggage service desk at the airport or call our customer service at 1-800-555-1234." wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane> 

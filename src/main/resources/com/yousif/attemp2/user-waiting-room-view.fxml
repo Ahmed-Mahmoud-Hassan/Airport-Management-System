@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="user-waiting-room-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.UserWaitingRoomController">
+   <content>
+      <VBox spacing="20.0">
+         <children>
+            <Label styleClass="section-title" text="Airport Waiting Rooms">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Waiting Room Tabs -->
+            <TabPane styleClass="waiting-room-tabs">
+               <tabs>
+                  <!-- Reserve a Space Tab -->
+                  <Tab text="Reserve a Space">
+                     <content>
+                        <VBox spacing="20.0">
+                           <children>
+                              <VBox styleClass="content-panel">
+                                 <children>
+                                    <Label styleClass="card-title" text="Reserve a Waiting Room Space">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator />
+                                    
+                                    <GridPane hgap="15.0" vgap="15.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="100.0" prefWidth="150.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Flight Number:" />
+                                          <TextField fx:id="flightNumberField" promptText="e.g. BA123" GridPane.columnIndex="1" />
+                                          
+                                          <Label text="Terminal:" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="terminalCombo" prefWidth="200.0" promptText="Select Terminal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          
+                                          <Label text="Waiting Room Type:" GridPane.rowIndex="2" />
+                                          <ComboBox fx:id="roomTypeCombo" prefWidth="200.0" promptText="Select Room Type" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          
+                                          <Label text="Number of Guests:" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="guestsCombo" prefWidth="200.0" promptText="Select Number" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="15.0" />
+                                       </padding>
+                                    </GridPane>
+                                    
+                                    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#checkAvailability" styleClass="secondary-button" text="Check Availability">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fas-search" />
+                                             </graphic>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#makeReservation" styleClass="primary-button" text="Reserve Now">
+                                             <graphic>
+                                                <FontIcon iconLiteral="fas-calendar-check" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                              
+                              <VBox styleClass="content-panel">
+                                 <children>
+                                    <Label styleClass="card-title" text="Available Waiting Rooms">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator />
+                                    
+                                    <TableView fx:id="availableRoomsTable">
+                                       <columns>
+                                          <TableColumn fx:id="roomTypeCol" prefWidth="150.0" text="Room Type" />
+                                          <TableColumn fx:id="terminalCol" prefWidth="100.0" text="Terminal" />
+                                          <TableColumn fx:id="capacityCol" prefWidth="100.0" text="Capacity" />
+                                          <TableColumn fx:id="availabilityCol" prefWidth="120.0" text="Availability" />
+                                          <TableColumn fx:id="priceCol" prefWidth="100.0" text="Price" />
+                                          <TableColumn fx:id="roomActionsCol" prefWidth="120.0" text="Actions" />
+                                       </columns>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TableView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <!-- My Reservations Tab -->
+                  <Tab text="My Reservations">
+                     <content>
+                        <VBox spacing="15.0">
+                           <children>
+                              <TableView fx:id="myReservationsTable">
+                                 <columns>
+                                    <TableColumn fx:id="reservationIdCol" prefWidth="120.0" text="Reservation ID" />
+                                    <TableColumn fx:id="resRoomTypeCol" prefWidth="120.0" text="Room Type" />
+                                    <TableColumn fx:id="resTerminalCol" prefWidth="100.0" text="Terminal" />
+                                    <TableColumn fx:id="flightCol" prefWidth="100.0" text="Flight" />
+                                    <TableColumn fx:id="dateCol" prefWidth="150.0" text="Date" />
+                                    <TableColumn fx:id="guestsCol" prefWidth="80.0" text="Guests" />
+                                    <TableColumn fx:id="statusCol" prefWidth="100.0" text="Status" />
+                                    <TableColumn fx:id="resActionsCol" prefWidth="120.0" text="Actions" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  
+                  <!-- Amenities Tab -->
+                  <Tab text="Amenities">
+                     <content>
+                        <VBox spacing="15.0">
+                           <children>
+                              <VBox styleClass="content-panel">
+                                 <children>
+                                    <Label styleClass="card-title" text="Waiting Room Amenities">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator />
+                                    
+                                    <GridPane hgap="20.0" vgap="20.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <VBox alignment="CENTER" styleClass="amenity-card">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-wifi" iconSize="36" />
+                                                <Label text="Free Wi-Fi" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="High-speed internet access" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          
+                                          <VBox alignment="CENTER" styleClass="amenity-card" GridPane.columnIndex="1">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-utensils" iconSize="36" />
+                                                <Label text="Complimentary Food" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Snacks and beverages" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          
+                                          <VBox alignment="CENTER" styleClass="amenity-card" GridPane.columnIndex="2">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-tv" iconSize="36" />
+                                                <Label text="Entertainment" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="TVs and streaming services" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          
+                                          <VBox alignment="CENTER" styleClass="amenity-card" GridPane.rowIndex="1">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-shower" iconSize="36" />
+                                                <Label text="Shower Facilities" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Clean and private showers" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          
+                                          <VBox alignment="CENTER" styleClass="amenity-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-bed" iconSize="36" />
+                                                <Label text="Rest Areas" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Comfortable seating and day beds" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                          
+                                          <VBox alignment="CENTER" styleClass="amenity-card" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <FontIcon iconLiteral="fas-plug" iconSize="36" />
+                                                <Label text="Charging Stations" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Power outlets and USB ports" textAlignment="CENTER" wrapText="true" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane> 

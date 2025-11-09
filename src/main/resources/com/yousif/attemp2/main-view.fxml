@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<BorderPane id="mainContainer" fx:id="mainContainer" styleClass="main-container" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.MainController">
+   <left>
+      <VBox id="sidebar" fx:id="sidebarMenu" styleClass="sidebar">
+         <children>
+            <Label id="logoLabel" styleClass="logo-label" text="Elkaror Mangment System" />
+            <Button fx:id="dashboardBtn" mnemonicParsing="false" onAction="#showDashboard" styleClass="nav-button" text="Dashboard">
+               <graphic>
+                  <FontIcon iconLiteral="fas-tachometer-alt" />
+               </graphic>
+            </Button>
+            <Button fx:id="flightOpsBtn" mnemonicParsing="false" onAction="#showFlightOperations" styleClass="nav-button" text="Flight Operations">
+               <graphic>
+                  <FontIcon iconLiteral="fas-plane" />
+               </graphic>
+            </Button>
+            <Button fx:id="passengerBtn" mnemonicParsing="false" onAction="#showPassengerCheckin" styleClass="nav-button" text="Passenger Check-in">
+               <graphic>
+                  <FontIcon iconLiteral="fas-users" />
+               </graphic>
+            </Button>
+            <Button fx:id="baggageBtn" mnemonicParsing="false" onAction="#showBaggageTracking" styleClass="nav-button" text="Baggage Tracking">
+               <graphic>
+                  <FontIcon iconLiteral="fas-suitcase" />
+               </graphic>
+            </Button>
+            <Button fx:id="flowAnalysisBtn" mnemonicParsing="false" onAction="#showPassengerFlowAnalysis" styleClass="nav-button" text="Flow Analysis">
+               <graphic>
+                  <FontIcon iconLiteral="fas-chart-line" />
+               </graphic>
+            </Button>
+            <Button fx:id="securityBtn" mnemonicParsing="false" onAction="#showSecurityCheckpoint" styleClass="nav-button" text="Security Checkpoint">
+               <graphic>
+                  <FontIcon iconLiteral="fas-shield-alt" />
+               </graphic>
+            </Button>
+            <Button fx:id="boardingBtn" mnemonicParsing="false" onAction="#showBoardingStatus" styleClass="nav-button" text="Boarding Status">
+               <graphic>
+                  <FontIcon iconLiteral="fas-clipboard-check" />
+               </graphic>
+            </Button>
+            <Button fx:id="adminServicesBtn" mnemonicParsing="false" onAction="#showAdminServices" styleClass="nav-button" text="Service Requests">
+               <graphic>
+                  <FontIcon iconLiteral="fas-concierge-bell" />
+               </graphic>
+            </Button>
+            <Button fx:id="simulationBtn" mnemonicParsing="false" onAction="#showSimulation" styleClass="nav-button" text="Let's Simulate">
+               <graphic>
+                  <FontIcon iconLiteral="fas-play-circle" />
+               </graphic>
+            </Button>
+            <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" styleClass="logout-button" text="Logout">
+                     <graphic>
+                        <FontIcon iconLiteral="fas-sign-out-alt" />
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="header">
+         <children>
+            <Label styleClass="header-title" text="Admin Portal" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>

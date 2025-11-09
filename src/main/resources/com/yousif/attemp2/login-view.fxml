@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<BorderPane styleClass="login-container" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.LoginController">
+   <center>
+      <VBox alignment="CENTER" maxWidth="550.0" spacing="20.0" styleClass="login-panel">
+         <children>
+            <Label styleClass="app-title" text="Elkaror Mangment System">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            
+            <FontIcon iconLiteral="fas-plane-departure" iconSize="70" />
+            
+            <StackPane VBox.vgrow="ALWAYS">
+               <children>
+                  <!-- Login Panel -->
+                  <VBox fx:id="loginPanel" spacing="20.0">
+                     <children>
+                        <Label styleClass="login-subtitle" text="Sign In">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+
+                        <HBox alignment="CENTER" spacing="15.0">
+                           <fx:define>
+                              <ToggleGroup fx:id="portalToggleGroup" />
+                           </fx:define>
+                           <children>
+                              <ToggleButton fx:id="userPortalToggle" selected="true" styleClass="portal-toggle" text="User Portal">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="portalToggleGroup" />
+                                 </toggleGroup></ToggleButton>
+                              <ToggleButton fx:id="adminPortalToggle" prefHeight="26.0" prefWidth="90.0" styleClass="portal-toggle" text="Admin Portal" toggleGroup="$portalToggleGroup" />
+                           </children>
+                        </HBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Username" />
+                              <TextField fx:id="usernameField" promptText="Enter your username">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Password" />
+                              <PasswordField fx:id="passwordField" promptText="Enter your password">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </PasswordField>
+                           </children>
+                        </VBox>
+                        
+                        <Label fx:id="errorMessage" styleClass="error-message" text="" />
+                        
+                        <Button defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#login" styleClass="login-button" text="Login">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-sign-in-alt" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
+                           </padding>
+                        </Button>
+                        
+                        <HBox alignment="CENTER" spacing="5">
+                           <children>
+                              <Label text="Don't have an account?" />
+                              <Hyperlink onAction="#showSignUp" text="Sign up" />
+                           </children>
+                        </HBox>
+                        
+                        <Region VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Sign Up Panel -->
+                  <VBox fx:id="signupPanel" spacing="15.0" visible="false">
+                     <children>
+                        <Label styleClass="login-subtitle" text="Create Account">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Full Name" />
+                              <TextField fx:id="nameField" promptText="Enter your full name">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Email" />
+                              <TextField fx:id="emailField" promptText="Enter your email address">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Username" />
+                              <TextField fx:id="newUsernameField" promptText="Choose a username">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Password" />
+                              <PasswordField fx:id="newPasswordField" promptText="Create a password">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </PasswordField>
+                           </children>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Confirm Password" />
+                              <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </PasswordField>
+                           </children>
+                        </VBox>
+                        
+                        <Label fx:id="signupErrorMessage" styleClass="error-message" text="" />
+                        
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signUp" styleClass="signup-button" text="Create Account">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-user-plus" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
+                           </padding>
+                        </Button>
+                        
+                        <Region VBox.vgrow="ALWAYS" />
+                        
+                        <HBox alignment="CENTER" spacing="5">
+                           <children>
+                              <Label text="Already have an account?" />
+                              <Hyperlink onAction="#showLogin" text="Log in" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="50.0" right="50.0" top="40.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.shape.Rectangle?>
+
+<ScrollPane fitToWidth="true" styleClass="user-dashboard-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.UserDashboardController">
+   <content>
+      <VBox spacing="20.0">
+         <children>
+            <Label styleClass="section-title" text="My Dashboard">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            
+            <!-- Upcoming Flights Section -->
+            <VBox styleClass="dashboard-card">
+               <children>
+                  <Label styleClass="card-title" text="My Upcoming Flights">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <VBox fx:id="upcomingFlightsContainer" spacing="15.0" styleClass="flights-container">
+                     <!-- Sample Flight Card (will be populated dynamically) -->
+                     <children>
+                        <HBox styleClass="flight-card" alignment="CENTER_LEFT" spacing="15.0">
+                           <children>
+                              <VBox alignment="CENTER" styleClass="flight-logo-container">
+                                 <children>
+                                    <FontIcon iconLiteral="fas-plane-departure" iconSize="36" />
+                                 </children>
+                              </VBox>
+                              
+                              <VBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label styleClass="flight-number" text="BA123" />
+                                          <Label styleClass="flight-status-ontime" text="On Time" />
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label styleClass="flight-route" text="London (LHR) to New York (JFK)" />
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label styleClass="flight-date" text="May 25, 2023 • 10:30 AM" />
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <Label styleClass="flight-terminal" text="Terminal 5 • Gate 23" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <Button styleClass="action-button" text="Check In">
+                                       <graphic>
+                                          <FontIcon iconLiteral="fas-check-circle" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+            
+            <!-- Quick Actions Section -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" styleClass="quick-action-card" fx:id="boardingPassCard">
+                     <children>
+                        <FontIcon iconLiteral="fas-qrcode" iconSize="36" />
+                        <Label text="My Boarding Pass" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" styleClass="quick-action-card" GridPane.columnIndex="1" fx:id="trackBaggageCard">
+                     <children>
+                        <FontIcon iconLiteral="fas-suitcase" iconSize="36" />
+                        <Label text="Track Baggage" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" styleClass="quick-action-card" GridPane.columnIndex="2" fx:id="waitingRoomCard">
+                     <children>
+                        <FontIcon iconLiteral="fas-couch" iconSize="36" />
+                        <Label text="Waiting Room" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Flight Status Updates -->
+            <VBox styleClass="dashboard-card">
+               <children>
+                  <Label styleClass="card-title" text="Flight Status Updates">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Separator />
+                  
+                  <VBox fx:id="flightStatusContainer" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="status-update">
+                           <children>
+                              <FontIcon iconLiteral="fas-info-circle" />
+                              <Label text="Your flight BA123 is on schedule. Departure at 10:30 AM." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="status-update">
+                           <children>
+                              <FontIcon iconLiteral="fas-clock" />
+                              <Label text="Check-in for your flight opens in 3 hours." />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="status-update">
+                           <children>
+                              <FontIcon iconLiteral="fas-thermometer-half" />
+                              <Label text="Weather at destination: 72°F, Partly Cloudy" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="0.0" right="0.0" top="0.0" />
+         </padding>
+      </VBox>
+   </content>
+   <padding>
+      <Insets bottom="0.0" left="0.0" right="0.0" top="0.0" />
+   </padding>
+</ScrollPane> 

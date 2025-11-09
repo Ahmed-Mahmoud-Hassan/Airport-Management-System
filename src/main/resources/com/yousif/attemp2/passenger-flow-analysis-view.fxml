@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.PassengerFlowAnalysisController">
+   <content>
+      <VBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="section-title" text="Passenger Flow Analysis" />
+            
+            <!-- Overview Statistics -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="100.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Current Passengers" />
+                        <Label fx:id="currentPassengersValue" styleClass="stat-card-value" text="3,452" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Peak Congestion" />
+                        <Label fx:id="peakCongestionValue" styleClass="stat-card-value" text="Security (T1)" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="2">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Avg. Processing Time" />
+                        <Label fx:id="avgProcessingTimeValue" styleClass="stat-card-value" text="14 min" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="stat-card" GridPane.columnIndex="3">
+                     <children>
+                        <Label styleClass="stat-card-title" text="Efficiency Rating" />
+                        <Label fx:id="efficiencyRatingValue" styleClass="stat-card-value" text="84%" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Heatmap and Flow Visualization -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-title" text="Terminal Congestion Heatmap" />
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Terminal:" />
+                              <ComboBox fx:id="terminalSelector" prefWidth="120.0" />
+                              <Button mnemonicParsing="false" onAction="#refreshHeatmap" text="Refresh" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  
+                  <Pane fx:id="heatmapPane" minHeight="300.0" styleClass="heatmap-container" />
+                  
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="congestion-indicator, low-congestion" text="   " />
+                              <Label text="Low" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="congestion-indicator, medium-congestion" text="   " />
+                              <Label text="Medium" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="congestion-indicator, high-congestion" text="   " />
+                              <Label text="High" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="5.0">
+                           <children>
+                              <Label styleClass="congestion-indicator, critical-congestion" text="   " />
+                              <Label text="Critical" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <!-- Flow Analytics -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="300.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <!-- Hourly Traffic -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="0">
+                     <children>
+                        <Label styleClass="section-title" text="Hourly Traffic" />
+                        <LineChart fx:id="hourlyTrafficChart" legendVisible="false">
+                           <xAxis>
+                              <CategoryAxis label="Hour" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Passengers" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+                  
+                  <!-- Bottleneck Distribution -->
+                  <VBox styleClass="content-panel" GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="section-title" text="Bottleneck Distribution" />
+                        <PieChart fx:id="bottleneckChart" labelLineLength="20" legendVisible="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            
+            <!-- Congestion Points Table -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <Label styleClass="section-title" text="Identified Congestion Points" />
+                  
+                  <TableView fx:id="congestionTable">
+                     <columns>
+                        <TableColumn fx:id="locationColumn" prefWidth="150.0" text="Location" />
+                        <TableColumn fx:id="congestionLevelColumn" prefWidth="120.0" text="Congestion Level" />
+                        <TableColumn fx:id="waitTimeColumn" prefWidth="100.0" text="Wait Time" />
+                        <TableColumn fx:id="peakTimeColumn" prefWidth="120.0" text="Peak Time" />
+                        <TableColumn fx:id="recommendedStaffColumn" prefWidth="100.0" text="Recommended Staff" />
+                        <TableColumn fx:id="actionsColumn" prefWidth="150.0" text="Actions" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            
+            <!-- Recommendations -->
+            <VBox styleClass="content-panel">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-title" text="Optimization Recommendations" />
+                     </children>
+                  </HBox>
+                  
+                  <VBox fx:id="recommendationsContainer" spacing="10.0">
+                     <!-- Added dynamically -->
+                  </VBox>
+                  
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#generateReport" text="Generate Report">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-file-pdf" />
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#applyRecommendations" styleClass="action-button" text="Apply Recommendations">
+                           <graphic>
+                              <FontIcon iconLiteral="fas-check" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane> 

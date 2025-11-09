@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="20.0" styleClass="content-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yousif.attemp2.UserBookingController">
+    <children>
+        <Label styleClass="section-title" text="Book Your Flight">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Flight Search Section -->
+        <VBox styleClass="content-panel" spacing="15.0">
+            <children>
+                <Label styleClass="card-title" text="Search Flights">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <GridPane hgap="15.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="40.0" prefHeight="40.0" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="From:" />
+                        <ComboBox fx:id="originAirportCombo" prefWidth="200.0" promptText="Select Origin" GridPane.columnIndex="1" />
+                        <Label text="To:" GridPane.columnIndex="2" />
+                        <ComboBox fx:id="destAirportCombo" prefWidth="200.0" promptText="Select Destination" GridPane.columnIndex="3" />
+                    </children>
+                </GridPane>
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#searchFlights" styleClass="primary-button" text="Search Flights">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-search" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </VBox>
+
+        <!-- Available Flights Table -->
+        <VBox styleClass="content-panel" VBox.vgrow="ALWAYS">
+            <children>
+                <Label styleClass="card-title" text="Available Flights">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="flightNumberCol" prefWidth="100.0" text="Flight" />
+                        <TableColumn fx:id="airlineCol" prefWidth="150.0" text="Airline" />
+                        <TableColumn fx:id="originCol" prefWidth="150.0" text="From" />
+                        <TableColumn fx:id="destinationCol" prefWidth="150.0" text="To" />
+                        <TableColumn fx:id="departureCol" prefWidth="150.0" text="Departure" />
+                        <TableColumn fx:id="arrivalCol" prefWidth="150.0" text="Arrival" />
+                        <TableColumn fx:id="priceCol" prefWidth="100.0" text="Price" />
+                        <TableColumn fx:id="actionsCol" prefWidth="100.0" text="Actions" />
+                    </columns>
+                </TableView>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </VBox>
+
+        <!-- My Bookings Section -->
+        <VBox styleClass="content-panel">
+            <children>
+                <Label styleClass="card-title" text="My Bookings">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="bookingsTable">
+                    <columns>
+                        <TableColumn fx:id="bookingRefCol" prefWidth="120.0" text="Booking Ref" />
+                        <TableColumn fx:id="bookedFlightCol" prefWidth="100.0" text="Flight" />
+                        <TableColumn fx:id="bookingDateCol" prefWidth="150.0" text="Booking Date" />
+                        <TableColumn fx:id="seatCol" prefWidth="100.0" text="Seat" />
+                        <TableColumn fx:id="statusCol" prefWidth="100.0" text="Status" />
+                        <TableColumn fx:id="bookingActionsCol" prefWidth="150.0" text="Actions" />
+                    </columns>
+                </TableView>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox> 
