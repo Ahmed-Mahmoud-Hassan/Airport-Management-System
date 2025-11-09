@@ -68,7 +68,7 @@ mvn javafx:run
 
 ## Demo
 
-Check out the demo video: [Airport Management System Demo](https://youtu.be/XIOvBi6Ml7s)
+Check out the demo video by my teammate [@Joe-world1357](https://github.com/Joe-world1357): [Airport Management System Demo](https://youtu.be/XIOvBi6Ml7s)
 
 ## Contributing
 
